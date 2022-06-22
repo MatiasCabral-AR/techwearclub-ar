@@ -1,13 +1,24 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: futurism;
+  src: local('Futurism'), url(./resources/fonts/Futurism.otf) format('opentype');
+}
+@font-face {
+  font-family: futurism-light;
+  src: local('FuturismL'), url(./resources/fonts/FuturismL.otf) format('opentype');
+}
+
+.f-futurism{
+  font-family: futurism;
+}
+.f-futurismL{
+  font-family: futurism-light;
 }
