@@ -9,6 +9,15 @@
 Para poder visualizar las alertas del proyecto debera ejecutar el siguiente comando :
  - $ npm install --save react-toastify
 
+ ## React Router
+
+### `Documentacion de React Router`
+
+[https://reactrouter.com/docs/en/v6]
+
+Para poder navegar sobre las paginas del proyecto debera ejecutar el siguiente comando :
+ - $ npm install react-router-dom@6
+
  ## Formik
 
  ### `Documentacion Formik`
