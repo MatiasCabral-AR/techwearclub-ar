@@ -1,0 +1,27 @@
+.loading {   
+    letter-spacing: 4.4px; 
+    transform: translate(-50%, -60%);  
+}  
+.loading:before {  
+    color: #aaa;  
+    content: attr(data-loading-text);  
+}  
+.loading:after {  
+    top: 0;  
+    left: 0;  
+    width: 0;  
+    opacity: 1;  
+    color: #333;  
+    overflow: hidden;  
+    position: absolute;  
+    content: attr(data-loading-text);  
+    animation: loading 2s infinite;  
+}  
+@keyframes loading {  
+    0% {  
+         width: 0;  
+   }  
+    100% {  
+         width: 100%;  
+   }  
+} 
