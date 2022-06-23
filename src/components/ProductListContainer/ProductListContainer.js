@@ -7,6 +7,7 @@ import {getDocs, collection, query, where} from 'firebase/firestore' // Methods
 import Loader from "../Loader/Loader";
 import ErrorRender from "../ErrorRender/ErrorRender";
 import Header from '../Header/Header'
+import ProductList from "../ProductList/ProductList";
 
 // ProductListContainer receives as props a default title to show on its Header
 const ProductListContainer = ({title}) => {
