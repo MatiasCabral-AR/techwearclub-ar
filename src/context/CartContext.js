@@ -53,6 +53,11 @@ export function CartContextProvider({children}){
         setCart([])
     }
 
+    // Function remove item from cart
+    const removeFromCart = (id) => {
+        setCart(cart.filter(product => product.id !== id))
+    }
+
 
     return(
         <CartContext.Provider value={{cart, setCart}}>

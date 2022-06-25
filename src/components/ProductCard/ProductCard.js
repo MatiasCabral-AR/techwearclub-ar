@@ -1,5 +1,6 @@
 import './ProductCard.css'
 import {Link} from 'react-router-dom'
+import ProductCount from '../ProductCount/ProductCount'
 
 const ProductCard = ({props}) => {
     let {id, name, price, src1, discount, stock, cant} = props
@@ -13,9 +14,11 @@ const ProductCard = ({props}) => {
                 : <p className="price">${price}</p>}
                 <div class="product-buttons">
                     <Link className="cart-link" to={`/product/${id}`}><Button className="cart-button">Ver producto</Button></Link>
-                    <button>Add to Cart</button>
+                    <ProductCount props={props}/>
                 </div>
             </div>
         </div>
     )
 }
+
+export default ProductCard
