@@ -1,5 +1,6 @@
 import './ProductList.css'
 import { Container } from 'react-bootstrap'
+import ProductCard from '../ProductCard/ProductCard'
 
 /* This component render all items inside 'products' mapping it and passing its object properties to a ProductCard component
    then displaying them in a grid layout*/

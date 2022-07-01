@@ -1,0 +1,138 @@
+.product-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-img{
+    max-width: 100%;
+}
+
+.product-img:hover + .product-detail, .product-detail:hover{
+    transform: translateY(-100%); 
+}
+
+.product-detail{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: all .5s ease;
+}
+
+.name{
+    color: #e6e6e6;
+    font-size: large;
+}
+
+.price{
+    margin-bottom: .3rem;
+    color: #e6e6e6;
+    font-size: large;
+}
+
+.card-button{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: rgba(0,0,0,0.5);
+    color: #FFF;
+    border: 1px solid #fff;
+    outline: 0;
+    position: relative;
+    border: none;
+    transition: color 0.5s, transform 0.2s, background-color 0.2s;
+    outline: none;
+    border-radius: 3px;
+    border: 3px solid transparent;
+}
+.card-button:active{
+  transform: translateY(3px);
+}
+
+.card-button::after, .card-button::before {
+  border-radius: 3px;
+}
+
+button {
+    position: relative;
+    border: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 18px;
+    transition: color 0.5s, transform 0.2s, background-color 0.2s;
+    outline: none;
+    border-radius: 3px;
+    border: 3px solid transparent;
+  }
+  button:active {
+    transform: translateY(3px);
+  }
+  button::after, button::before {
+    border-radius: 3px;
+  }
+  
+  .shrink-border {
+    background-color: transparent;
+    color: #e6e6e6;
+  }
+  .shrink-border:hover {
+    background-color: transparent;
+    box-shadow: none;
+    color: #e6e6e6;
+  }
+  .shrink-border::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #e6e6e6;
+    transition: opacity 0.3s, border 0.3s;
+  }
+  .shrink-border:hover::before {
+    opacity: 0;
+  }
+  .shrink-border::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 3px solid #e6e6e6;
+    opacity: 0;
+    z-index: -1;
+    transform: scaleX(1.1) scaleY(1.3);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .shrink-border:hover::after {
+    opacity: 1;
+    transform: scaleX(1) scaleY(1);
+  }
+
+  .shrink-border-black{
+    color: #000;
+  }
+  .shrink-border-black:hover{
+    color: #000;
+  }
+
+  .shrink-border-black::before{
+    border: 1px solid #000;
+  }
+
+  .shrink-border-black::after{
+    border: 3px solid #000;
+  }
+
+  .card-button-black{
+    color: #000;
+  }

@@ -1,6 +1,6 @@
-import './NavBar.css'
 import {Navbar, Container, Nav, Offcanvas} from 'react-bootstrap'
 import CartLogo from '../CartLogo/CartLogo'
+import './NavBar.css'
 import { Link, NavLink } from 'react-router-dom'
 
 const NavBar = () => {
@@ -8,11 +8,12 @@ const NavBar = () => {
       <Navbar className="d-flex flex-column mb-3 fullnav" key='lg' expand='lg'>
         <Container fluid className='d-flex justify-content-center'>
           {/* Link a Home */}
-          <Link to='/' className='text-decoration-none'><Navbar.Brand as={'div'} className='f-futurism'>TechWearClub AR</Navbar.Brand></Link>
+          <Link to='/' className='text-decoration-none'><Navbar.Brand as={'div'} className='f-futurism d-none d-lg-inline'>TechWearClub AR</Navbar.Brand></Link>
         </Container>
         <Container fluid >
+          <Link to='/' className='text-decoration-none'><Navbar.Brand as={'div'} className='f-futurism d-lg-none d-inline '>TechWearClub AR</Navbar.Brand></Link>
           {/* Link a Cart (Contiene CartLogo)*/}
-          <Link to='/cart' className='ms-auto d-lg-none text-dark'><CartLogo/></Link>
+          <Link to='/cart' className='ms-auto d-lg-none text-dark text-decoration-none'><CartLogo/></Link>
           <Navbar.Toggle aria-controls='offcanvasNavbar-expand-lg '/>
           <Navbar.Offcanvas id='offcanvasNavbar-expand-lg' aria-labelledby='offcanvasNavbarLabel-expand-lg' placement="end" >
             {/* Offcanvas desplegable, utilizado en pantallas moviles para mostrar los links del NavBar */}
@@ -28,7 +29,7 @@ const NavBar = () => {
                 <NavLink to='/category/Remera' className={({isActive}) => isActive ? 'd-none' : 'text-decoration-none f-futurismL text-dark px-3 underline text-center'}>Remeras</NavLink>
                 <NavLink to='/category/Pantalon' className={({isActive}) => isActive ? 'd-none' : 'text-decoration-none f-futurismL text-dark px-3 underline text-center'}>Pantalones</NavLink>
                 <NavLink to='/category/Campera' className={({isActive}) => isActive ? 'd-none' : 'text-decoration-none f-futurismL text-dark px-3 underline text-center'}>Camperas</NavLink>
-                <Link to='/cart' className='position-absolute end-0 align-items-center d-none d-lg-flex text-dark'><CartLogo/></Link>
+                <Link to='/cart' className='position-absolute end-0 align-items-center justify-content-center d-none d-lg-flex text-dark text-decoration-none'><CartLogo/></Link>
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

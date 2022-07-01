@@ -1,10 +1,18 @@
 import './Loader.css'
-import Container from 'react-bootstrap/esm/Container'
 
 const Loader = () => {
-    <Container className='d-flex justify-content-center'>
-        <div className='loading f-futurism display-2' data-loading-text='TechwearclubAR'></div>
-    </Container>
+    return(
+        <div className="loading">
+        <div className="loading-text">
+          <span className="loading-text-words f-futurism">T</span>
+          <span className="loading-text-words f-futurism">W</span>
+          <span className="loading-text-words f-futurism">C</span>
+          <span className="loading-text-words f-futurism"></span>
+          <span className="loading-text-words f-futurism">A</span>
+          <span className="loading-text-words f-futurism">R</span>
+        </div>
+      </div>
+    )
 }
 
 export default Loader

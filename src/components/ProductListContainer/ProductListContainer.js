@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import {useParams} from 'react-router-dom'
-// Importing Firebase database and methods to process it
-import {database} from '../../firebase' // Database
-import {getDocs, collection, query, where} from 'firebase/firestore' // Methods
-// Importing other Components 
 import Loader from "../Loader/Loader";
 import ErrorRender from "../ErrorRender/ErrorRender";
 import Header from '../Header/Header'
 import ProductList from "../ProductList/ProductList";
+import { getProducts } from "../../firebase/firestore";
 
 // ProductListContainer receives as props a default title to show on its Header
 const ProductListContainer = ({title}) => {
@@ -19,20 +16,18 @@ const ProductListContainer = ({title}) => {
     // This useEffect change the products Array items depending the value of 'category' and re-render ProductList
     useEffect(() =>{
         setLoad(true)
-        // Obtain the collection reference filtered based on 'category'. if category is not defined do not filter anything
-        const collectionReference = (category ? 
-            (category === 'Sale' ? query(collection(database, 'products'), where('discount' , '>', 0)) 
-            : query(collection(database, 'products'), where('category' , '==', category))) 
-            : collection(database, 'products'))
-        // Getting all products based on collectionReference
-        getDocs( collectionReference ).then( result => {
-            const products = result.docs.map( doc => {
-                return {id : doc.id, ...doc.data()}
+        setTimeout(() => {
+            getProducts(category)
+            .then(response => {
+                setProducts(response)
             })
-            setProducts(products) // Setting products on productsArray state
-        }).catch(error => {
-            const products = []
-        }).finally(() => {setLoad(false)}) // Setting loader state to false
+            .catch(error => {
+                setProducts(error)
+            })
+            .finally(() => {
+                setLoad(false)
+            })
+        }, 2500)
     }, [category])
 
     let header = title ? title : `${category}` // Setting title to render
@@ -52,11 +47,10 @@ const ProductListContainer = ({title}) => {
         <>
             <Header title={header}/>
             <section className='d-flex justify-content-center align-items-center'>
-                {products.length > 0 
+                {productsArray.length > 0 
                     ? <ProductList products={productsArray}/> 
                     :   <>
                         <ErrorRender error='Error al cargar los productos. Por favor recarga la pagina.'></ErrorRender>
-                        <p className="display-3 text-center w-100">{error}</p>
                         </>
                 }
             </section>

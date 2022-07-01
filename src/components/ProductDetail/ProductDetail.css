@@ -1,0 +1,32 @@
+.main-section {
+    background-color: #565656;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, 5%);
+    
+}
+
+.left-side-product-box img {
+    width: 100%;
+}
+.sub-img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.sub-img img {
+    border: 2px solid #3a3a3a;
+    margin-top: 1rem;
+    padding: 1px;
+    width: 30%;
+}
+
+.right-side-pro-detail{
+    color: #000;
+}
+
+.right-side-pro-detail p {
+    font-size: 25px;
+}

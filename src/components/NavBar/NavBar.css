@@ -1,4 +1,4 @@
-.navbar, .offcanvas{
+.navbar{
     background-color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -10,7 +10,6 @@
 .navbar-brand, .offcanvas-title{
     font-size: 3rem;
 }
-
 
 .underline:after{
   background: none repeat scroll 0 0 transparent;
@@ -27,4 +26,16 @@
 .underline:hover::after {
   width: 100%; 
   left: 0; 
+}
+
+@media (max-width: 761px) {
+  .navbar-brand{
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .navbar-brand{
+    font-size: 1.5rem;
+  }
 }

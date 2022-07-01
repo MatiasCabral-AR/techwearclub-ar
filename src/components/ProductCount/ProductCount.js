@@ -1,12 +1,14 @@
 import { useState, useContext } from "react";
+import './ProductCount.css'
 // Cart Import
 import CartContext from "../../context/CartContext";
 // Bootstrap Import
 import Container from "react-bootstrap/esm/Container";
 
-const ProductCount = (product) => {
+
+const ProductCount = ({product}) => {
     const [cant, setCant] = useState(1)
-    const {addToCart} = useContext(CartContext)
+    const {addToCart, cart} = useContext(CartContext)
 
     function addCant(){
         if(cant < product.stock){
@@ -20,18 +22,19 @@ const ProductCount = (product) => {
         }
     }
 
+
     return(
         <Container className="d-flex flex-column justify-content-center align-items-center">
             {product.stock > 0
             ?   <>
                     <div className="d-flex justify-content-center align-items-center">
-                        <button onClick={decCant}>-</button>
-                        <span>{cant}</span>
-                        <button onClick={addCant}>+</button>
+                        <button className="shrink-border" onClick={decCant}>-</button>
+                        <span className="cant">{cant}</span>
+                        <button className="shrink-border" onClick={addCant}>+</button>
                     </div>
-                    <button onClick={() => addToCart(product, cant)}>Agregar al Carrito</button>
+                    <button className="shrink-border mb-1" onClick={() => addToCart(product, cant, cart)}>Agregar al Carrito</button>
                 </>
-            : <p>No hay stock de este producto</p>
+            : <p className="text-light">No hay stock de este producto</p>
         }
         </Container>
     )

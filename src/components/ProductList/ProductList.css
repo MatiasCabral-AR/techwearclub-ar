@@ -7,15 +7,15 @@
 
 @media (max-width: 1020px) {
     .productList { grid-template-columns: repeat(3, 1fr); }
-    .card {width: 30vw; height: 30vw;}
+    .product-card {width: 30vw; height: 30vw;}
   }
 
 @media (max-width: 761px) {
     .productList { grid-template-columns: repeat(2, 1fr); }
-    .card {width: 45vw; height: 45vw;}
+    .product-card {width: 45vw; height: 45vw;}
   }
 
 @media (max-width: 500px) {
     .productList { grid-template-columns: 2fr; }
-    .card {width: 90vw; height: 90vw;}
+    .product-card {width: 90vw; height: 90vw;}
   }
