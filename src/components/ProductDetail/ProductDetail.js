@@ -14,7 +14,7 @@ const ProductDetail = ({product}) => {
             <Col lg={8} md={8} sm={10} xs={12} className='p-5 main-section'>
                 <Row className="m-0">
                     <Col lg={4} className='left-side-product-box pb-3'>
-                        <img src={image} alt="Foto de producto" />
+                        <img className="detail-img" src={image} alt="Foto de producto" />
                         <div className="sub-img">
                             <img src={src1} onClick={()=>setImage(src1)} style={{cursor:'pointer'}} alt="" />
                             <img src={src2} onClick={()=>setImage(src2)} style={{cursor:'pointer'}} alt="" />
