@@ -66,7 +66,7 @@ Para poder visualizar el proyecto de forma correcta debera ejecutar el siguiente
 Para poder visualizar las alertas del carrito de forma correcta debera ejecutar el siguiente comando : 
 - $ npm install sweetalert2
 
-# Google Firebase
+## Google Firebase
 
 ### `Documentacion de Google Firebase`
 
@@ -83,7 +83,7 @@ La aplicacion siempre va a mantener renderizado el componente NavBar (El cual po
 
 ## Rutas : 
 
-### / : 
+### '/'  : 
  Ruta de Home : Muestra todos los productos. <ProductListContainer/> sin ningun tipo de filtado
 
 ### /category/'categoria' : 
@@ -119,6 +119,7 @@ con las siguientes condiciones :
 
 - Debera poseer 2 colecciones : 
   - orders : la cual estara vacia, alli seran cargadas todas las ordenes de compra creadas por los usuarios de la aplicacion.
+    El formato del objeto orders sera creado por la misma aplicacion de forma automatica, siempre y cuando sea respetado el formato de los productos.
   - products : la cual tendra un objeto por cada producto, dichos objetos     
     necesitaran los siguientes campos : 
       - id (string): generado automaticamente por Firestore.
