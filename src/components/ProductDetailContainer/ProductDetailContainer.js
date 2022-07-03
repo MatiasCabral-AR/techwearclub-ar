@@ -1,33 +1,17 @@
-import { useState, useEffect, React } from "react";
 import Loader from "../Loader/Loader";
 import ProductDetail from "../ProductDetail/ProductDetail";
 import { getProduct } from "../../firebase/firestore";
+import { useFirestore } from "../../hooks/useFirestore";
 // Importing useParams to get Browser URL
 import {useParams} from 'react-router-dom';
 import ErrorRender from "../ErrorRender/ErrorRender";
 
 
 const ProductDetailContainer = () => {
-    const [product, setProduct] = useState([])
-    const {id} = useParams()
-    const [load, setLoad] = useState(true)
+    const {id} = useParams() // Getting id from URL
+    const {load, data} = useFirestore(() => getProduct(id), id, 2000) // Getting load state and fetching product
 
-    useEffect(() => {
-        setLoad(true)
-        setTimeout(() =>{
-            getProduct(id)
-            .then(response => {
-                setProduct(response)
-            })
-            .catch(error => {
-                setProduct(error)
-            })
-            .finally(() => {
-                setLoad(false)
-            }) // Setting loader in false to initialize render 
-            }, 2500)
-    }, [id])
-
+    // Conditional render Loader or ProductDetail based on load
     if(load){
         return(
             <section className="d-flex justify-content-center align-items-center">
@@ -37,7 +21,7 @@ const ProductDetailContainer = () => {
     }
     return(
         <section className='d-flex flex-column'>
-            <div className="d-flex justify-content-center">{product ? <ProductDetail product={product}/> : <ErrorRender error='Error al cargar el producto. Por favor recarga la pagina.'></ErrorRender>}</div>
+            <div className="d-flex justify-content-center">{data ? <ProductDetail product={data}/> : <ErrorRender error='Error al cargar el producto. Por favor recarga la pagina.'></ErrorRender>}</div>
         </section>
     )
 }

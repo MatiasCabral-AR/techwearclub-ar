@@ -12,6 +12,8 @@ const ClientForm = ({close}) => {
     const productIds = cart.map(prod => prod.id) // Gather all product id inside cart
     const batch = writeBatch(database) // Setting batch to update multiple values on database
     const outOfStock = [] // Out of Stock products array 
+    
+    
     // Default values inside input tags
     const initialValues = { 
         name: '',
@@ -38,12 +40,12 @@ const ClientForm = ({close}) => {
         return errors
     }
 
-    // Method to execute when Aceptar button is clicked
 
-    // Formik Form
+    // Formik Form Handler
     const form = useFormik({ 
         initialValues,
-        onSubmit : values => {
+        // Method to execute when Aceptar button is clicked
+        onSubmit : values => {  
             const productsReference = collection(database, 'products') // Products array reference
             const ordersReference = collection(database, 'orders') // Orders array reference
             getDocs(query(productsReference, where(documentId(), 'in', productIds))) // Get all products from database that matches with cart products using Id's
@@ -61,7 +63,7 @@ const ClientForm = ({close}) => {
                     })
                 })
                 .then(() => {
-                    if(outOfStock.length === 0){ // If all products are available. Return //? See video to explain
+                    if(outOfStock.length === 0){ // If all products are available. Return reference to orders collection and order object (buyer data, products, total bought)
                         const order = { data : values, products : cart, total : totalCart()}
                         return addDoc(ordersReference, order)
                     }
@@ -91,7 +93,7 @@ const ClientForm = ({close}) => {
                     }
                 })
         }
-        ,validate
+        ,validate // Call to validate function
          
     })
 
