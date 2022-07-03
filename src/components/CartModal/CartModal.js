@@ -13,6 +13,7 @@ const CartModal = () =>{
     return (
         <>
             <button className='cart-button cart-button-black shrink-border shrink-border-black' onClick={handleShow}>Comprar</button>
+            {/* Bootstrap Modal */}
             <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
                 <Modal.Header className='bg-dark' closeButton>
                     <Modal.Title className='text-light'>Por favor complete los siguientes datos.</Modal.Title>

@@ -37,11 +37,7 @@ const ProductDetail = ({product}) => {
                                 <Col lg={12}>
                                     <h5 className="text-center mt-1">Detalles del Producto</h5>
                                     <div className="d-flex flex-column">
-                                        <span>- {description[0]}</span>
-                                        <span>- {description[1]}</span>
-                                        <span>- {description[2]}</span>
-                                        <span>- {description[3]}</span>
-                                        <span>- {description[4]}</span>
+                                        {description.map( desc => <span>- {desc}</span> )} 
                                       </div>
                                     <hr/>
                                 </Col>

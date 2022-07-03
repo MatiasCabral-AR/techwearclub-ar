@@ -21,6 +21,13 @@ export const CartContextProvider = ({children}) => {
     // Function add to cart
     const addToCart = (product, cant, cart) =>{
         if(productCheck(product)){ // If product is not in cart ...
+
+            product.cant = cant // Setting the quantity selected in product.cant attribute
+            if(product.discount > 0){
+                product.price = product.price - (product.price * product.discount) / 100 // Setting product final price before sending to cart
+            }
+            setCart([...cart, product]) 
+            // Fire toast to notify
             toast.success('Producto Agregado al carrito', {
                 position: "top-left",
                 autoClose: 3000,
@@ -30,11 +37,6 @@ export const CartContextProvider = ({children}) => {
                 draggable: false,
                 progress: undefined,
                 });
-            product.cant = cant // Setting the quantity selected in product.cant attribute
-            if(product.discount > 0){
-                product.price = product.price - (product.price * product.discount) / 100 // Setting product final price before sending to cart
-            }
-            setCart([...cart, product])
         }else{
             let totalQuantity = cart.find(element => element.id === product.id).cant + cant // Store the quantity of a product already on cart and the quantity selected to add 
             if(totalQuantity > product.stock){
@@ -49,6 +51,9 @@ export const CartContextProvider = ({children}) => {
                     progress: undefined,
                     });
             }else{
+                let productIndex = cart.findIndex((element) => element.id === product.id) // Search for product inside cart
+                cart[productIndex].cant = totalQuantity // Update product.cant
+                // Fire toast to notify
                 toast.success(`${product.name} actualizado !`, {
                     position: "top-left",
                     autoClose: 3000,
@@ -58,9 +63,7 @@ export const CartContextProvider = ({children}) => {
                     draggable: false,
                     progress: undefined,
                     });
-                let productIndex = cart.findIndex((element) => element.id === product.id) // Search for product inside cart
-                cart[productIndex].cant = totalQuantity // Update product.cant
-                console.log(cart)
+                
             }
         }
     }

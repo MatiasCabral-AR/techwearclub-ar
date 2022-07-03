@@ -9,9 +9,9 @@ import Container from "react-bootstrap/esm/Container";
 const ProductCount = ({product}) => {
     const [cant, setCant] = useState(1)
     const {addToCart, cart} = useContext(CartContext)
-
+    const {id, name, price, discount, src1, stock} = product
     function addCant(){
-        if(cant < product.stock){
+        if(cant < stock){
             setCant(prevCant => prevCant + 1)
         }
     }
@@ -25,14 +25,14 @@ const ProductCount = ({product}) => {
 
     return(
         <Container className="d-flex flex-column justify-content-center align-items-center">
-            {product.stock > 0
+            {stock > 0
             ?   <>
                     <div className="d-flex justify-content-center align-items-center">
                         <button className="shrink-border" onClick={decCant}>-</button>
                         <span className="cant">{cant}</span>
                         <button className="shrink-border" onClick={addCant}>+</button>
                     </div>
-                    <button className="shrink-border mb-1" onClick={() => addToCart(product, cant, cart)}>Agregar al Carrito</button>
+                    <button className="shrink-border mb-1" onClick={() => addToCart({id, name, price, discount, src1, stock, cant}, cant, cart)}>Agregar al Carrito</button>
                 </>
             : <p className="text-light">No hay stock de este producto</p>
         }

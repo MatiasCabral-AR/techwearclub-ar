@@ -24,6 +24,7 @@ const NavBar = () => {
               {/* Links de NavBar y de Offcanvas */}
               <Nav className="justify-content-center flex-grow-1 pb-1">
                 <NavLink to='/' className={({isActive}) => isActive ? 'd-none' : 'text-decoration-none text-dark f-futurismL px-3 underline'}>Home</NavLink>
+                {}
                 <NavLink to='/category/Sale' className={({isActive}) => isActive ? 'd-none' : 'text-decoration-none f-futurismL text-dark px-3 underline text-center'}>🔥Sale🔥</NavLink>
                 <NavLink to='/category/Buzo' className={({isActive}) => isActive ? 'd-none' : 'text-decoration-none f-futurismL text-dark px-3 underline text-center'}>Buzos</NavLink>
                 <NavLink to='/category/Remera' className={({isActive}) => isActive ? 'd-none' : 'text-decoration-none f-futurismL text-dark px-3 underline text-center'}>Remeras</NavLink>

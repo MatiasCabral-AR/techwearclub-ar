@@ -2,12 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAzm-p2AgBu5WmQuCIoizxEuIzoQGQgfxY",
-  authDomain: "techwearclubar.firebaseapp.com",
-  projectId: "techwearclubar",
-  storageBucket: "techwearclubar.appspot.com",
-  messagingSenderId: "1086600538403",
-  appId: "1:1086600538403:web:d6b578afd486fb20a84496"
+  // Using Environment Variables to protect creator's database
+  // See README.md for further explanation
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
 
 const app = initializeApp(firebaseConfig);

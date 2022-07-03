@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 
 export const useFirestore = (getFunction, dependencies = [], ms) => {
+
     const [data, setData] = useState()
     const [load, setLoad] = useState(true)
 
@@ -16,8 +17,6 @@ export const useFirestore = (getFunction, dependencies = [], ms) => {
                 })
                 .finally( () => {setLoad(false)} )
         }, ms)
-        
-
     }, dependencies)
 
     return{
