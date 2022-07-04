@@ -136,3 +136,9 @@ button {
   .card-button-black{
     color: #000;
   }
+
+  @media (max-width: 500px) {
+    .product-detail{
+      width: 50%;
+    }
+  }
