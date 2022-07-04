@@ -15,7 +15,3 @@
     .product-card {width: 45vw; height: 45vw;}
   }
 
-@media (max-width: 500px) {
-    .productList { grid-template-columns: 2fr; }
-    .product-card {width: 90vw; height: 90vw;}
-  }

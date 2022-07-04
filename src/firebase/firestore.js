@@ -27,6 +27,6 @@ export const getProduct = (id) => {
                 const product = { id : result.id , ...result.data()}
                 resolve(product)
             })
-            .catch(error => {reject(false)})
+            .catch(() => reject(false))
     })
 }
