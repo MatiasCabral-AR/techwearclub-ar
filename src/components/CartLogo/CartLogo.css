@@ -1,0 +1,12 @@
+.cart-logo{
+    padding-right: 0 !important;
+}
+
+@media (max-width:761px){
+    .cart-logo p{
+        font-size: small;
+    }
+    .cart-logo i{
+        font-size: x-large;
+    }
+}

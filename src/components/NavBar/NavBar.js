@@ -13,12 +13,12 @@ const NavBar = () => {
         <Container fluid >
           <Link to='/' className='text-decoration-none'><Navbar.Brand as={'div'} className='f-futurism d-lg-none d-inline '>TechWearClub AR</Navbar.Brand></Link>
           {/* Link a Cart (Contiene CartLogo)*/}
-          <Link to='/cart' className='ms-auto d-lg-none text-dark text-decoration-none'><CartLogo/></Link>
+          <Link to='/cart' className='ms-auto d-lg-none text-dark text-decoration-none cart-link'><CartLogo/></Link>
           <Navbar.Toggle aria-controls='offcanvasNavbar-expand-lg '/>
-          <Navbar.Offcanvas id='offcanvasNavbar-expand-lg' aria-labelledby='offcanvasNavbarLabel-expand-lg' placement="top" >
+          <Navbar.Offcanvas id='offcanvasNavbar-expand-lg ' aria-labelledby='offcanvasNavbarLabel-expand-lg' placement="top" >
             {/* Offcanvas desplegable, utilizado en pantallas moviles para mostrar los links del NavBar */}
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title className='f-futurism mx-auto' id='offcanvasNavbarLabel-expand-lg'>Menu</Offcanvas.Title>
+              <Offcanvas.Title className='f-futurism me-auto' id='offcanvasNavbarLabel-expand-lg'>Menu</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body className='offCanvasBody'>
               {/* Links de NavBar y de Offcanvas */}
