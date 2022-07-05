@@ -27,6 +27,15 @@
   width: 100%; 
   left: 0; 
 }
+.offCanvasBody{
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.navbar-nav{
+  padding-top: 0;
+  padding-bottom: 0;
+  flex-direction: row;
+}
 
 @media (max-width: 761px) {
   .navbar-brand{
@@ -34,7 +43,12 @@
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 573px) {
+  .navLink{
+    padding-left: .5rem !important;
+    padding-right: .5rem !important;
+    font-size: small;
+  }
   .navbar-brand{
     font-size: 1.5rem;
   }
