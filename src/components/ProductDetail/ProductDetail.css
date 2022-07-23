@@ -1,9 +1,7 @@
 .main-section {
-    background-color: #565656;
-    position: absolute;
-    left: 50%;
-    right: 50%;
-    transform: translate(-50%, 5%);
+    margin-bottom: 2rem;
+    position: relative;
+    width: 80vw;
     
 }
 
@@ -12,8 +10,6 @@
 }
 .sub-img{
     width: 100%;
-    display: flex;
-    justify-content: center;
 }
 
 .sub-img img {

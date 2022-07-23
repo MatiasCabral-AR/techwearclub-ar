@@ -3,6 +3,7 @@ import Loader from "../Loader/Loader";
 import ErrorRender from "../ErrorRender/ErrorRender";
 import Header from '../Header/Header'
 import ProductList from "../ProductList/ProductList";
+import Footer from '../Footer/Footer';
 import { getProducts } from "../../firebase/firestore";
 import { useFirestore } from "../../hooks/useFirestore";
 
@@ -28,7 +29,7 @@ const ProductListContainer = ({title}) => {
     return(
         <>
             <Header title={header}/>
-            <section className='d-flex justify-content-center align-items-center'>
+            <section className='d-flex justify-content-center align-items-center mb-4'>
                 {data  
                     ? <ProductList products={data}/> 
                     :   <>
@@ -36,6 +37,7 @@ const ProductListContainer = ({title}) => {
                         </>
                 }
             </section>
+            <Footer/>
         </>
     )
 }

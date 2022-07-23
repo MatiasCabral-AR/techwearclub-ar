@@ -11,9 +11,9 @@ import { Link } from 'react-router-dom'
 const Cart = () => {
     const {cart} = useContext(CartContext)
     return(
-        <Container>
+        <>
             <p className='cart-title f-futurismL text-center'>Carrito</p>
-            <section className='cart mx-auto'>
+            <section className='cart'>
                 {cart.length === 0  // If there is nothing on cart. Show an alert and a Go-Back Button
                 ? <div className='d-flex w-100 justify-content-center flex-column bg-dark p-3'>
                     <p className='text-center text-light'>No hay productos en el Carrito</p>
@@ -27,7 +27,7 @@ const Cart = () => {
                     <CartPayment/>
                   </>}
             </section>
-        </Container>
+        </>
     )
 }
 
